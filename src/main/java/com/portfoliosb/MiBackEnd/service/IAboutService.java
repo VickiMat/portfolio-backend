@@ -15,7 +15,7 @@ public interface IAboutService {
     
     
    // public void editarDatosPersonales(Long id);
-   // public void editarImagenPerfil(Long id);
+   public void editarImagenPerfil(String url_imagen);
     
     
 }

@@ -1,14 +1,11 @@
 
 package com.portfoliosb.MiBackEnd.repository;
 
-import com.portfoliosb.MiBackEnd.model.About;
+import com.portfoliosb.MiBackEnd.model.Experiencia;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AboutRepository extends JpaRepository <About,Long>{
-
-    public void save(String url_imagen);
-    
+public interface ExperienciaRepository extends JpaRepository <Experiencia, Long>{
     
 }

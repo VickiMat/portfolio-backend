@@ -39,12 +39,11 @@ public class AboutService implements IAboutService {
         descripRepo.save(descrip);
     }
 
-/*
     @Override
-    public void editarImagenPerfil(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void editarImagenPerfil(String url_imagen) {
+        descripRepo.save(url_imagen);
     }
-
+ /*
     @Override
     public void editarDatosPersonales(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

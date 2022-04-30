@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,7 +37,7 @@ public class AboutController {
         return descripServ.verDescripciones();
     }
     
-    @DeleteMapping ("/eliminar/{id}")
+    @DeleteMapping ("/eliminar/about/{id}")
     public void borrarDescripcion(@PathVariable Long id){
         descripServ.borrarAbout(id);
     }
@@ -44,5 +45,12 @@ public class AboutController {
     @PutMapping ("/editar/descripcion")
     public void editarDescripcion(@RequestBody About descrip){
         descripServ.editarAbout(descrip);
+    }
+    
+    
+    //VER BIEN COMO FUNCIONA EL REQUEST PARAM PERO PARECE SER QUE SE HARIA ASI PARA EDITAR UN SOLO ITEM
+    @PutMapping ("/editar/foto")
+    public void editarFotoPerfil(@RequestParam("nombre") String url_imagen){
+        descripServ.editarImagenPerfil(url_imagen);
     }
 }

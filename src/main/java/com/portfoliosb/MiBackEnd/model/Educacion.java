@@ -22,28 +22,30 @@ public class Educacion {
     @Basic
     private String nombre_titulo;
     private String descripcion;
-    private Date periodo;
     private String logo;
     private String instituto;
     private String certificado;
-    
-    @ManyToOne()
-    @JoinColumn(name = "id_persona")
-    private About persona;
+    private String inicio;
+    private String fin;
+    private Long id_pers;
 
 
     public Educacion() {
     }
 
-    public Educacion(Long id, String nombre_titulo, String descripcion, Date periodo, String logo, String instituto, String certificado) {
+    public Educacion(Long id, String nombre_titulo, String descripcion, String logo, String instituto, String certificado, String inicio, String fin, Long id_pers) {
         this.id = id;
         this.nombre_titulo = nombre_titulo;
         this.descripcion = descripcion;
-        this.periodo = periodo;
         this.logo = logo;
         this.instituto = instituto;
         this.certificado = certificado;
+        this.inicio = inicio;
+        this.fin = fin;
+        this.id_pers = id_pers;
     }
+
+    
     
     
 }

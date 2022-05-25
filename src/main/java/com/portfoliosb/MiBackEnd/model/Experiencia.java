@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,14 +26,12 @@ public class Experiencia {
     private String lugar;
     private String descripcion;
         
-    @ManyToOne()
-    @JoinColumn(name = "id_persona")
-    private About persona;
+    
 
     public Experiencia() {
     }
 
-    public Experiencia(Long id, String posicion, String compañia, String url_img, String modo, String inicio, String fin, String lugar, String descripcion, About persona) {
+    public Experiencia(Long id, String posicion, String compañia, String url_img, String modo, String inicio, String fin, String lugar, String descripcion) {
         this.id = id;
         this.posicion = posicion;
         this.compañia = compañia;
@@ -45,7 +41,7 @@ public class Experiencia {
         this.fin = fin;
         this.lugar = lugar;
         this.descripcion = descripcion;
-        this.persona = persona;
+        
     }
     
     

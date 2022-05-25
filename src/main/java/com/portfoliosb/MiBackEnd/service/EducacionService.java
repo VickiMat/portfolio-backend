@@ -15,7 +15,7 @@ public class EducacionService implements IEducacionService {
     public EducacionRepository educacRepo;
     
     @Override
-    public List<Educacion> verEducaciones() {
+    public List<Educacion> verEducaciones(Long idPersona) {
         return educacRepo.findAll();
     }
 
@@ -35,8 +35,11 @@ public class EducacionService implements IEducacionService {
     }
 
     @Override
-    public void editarEducacion(Educacion educac) {
+    public void editarEducacion(Educacion educac, Long id) {
         educacRepo.save(educac);
     }
+
+
+    
     
 }

@@ -24,7 +24,6 @@ public class Persona {
     private String titulo;
     @NotNull
     private String descripcion;
-    @Column(name="url_imagen", length = 2048)
     private String img;
 
     public Persona() {

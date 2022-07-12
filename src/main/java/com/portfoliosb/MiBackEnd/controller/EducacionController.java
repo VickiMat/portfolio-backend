@@ -44,12 +44,12 @@ public class EducacionController {
     public void borrarEducacion(@PathVariable Long id){
         educacServ.borrarEducacion(id);
     }
-    
-    @PutMapping("/editar/{id}")
+    /*
+     @PutMapping("/editar/{id}")
     public void editarEducacion(@PathVariable Long id, @RequestBody Educacion educac){
         educacServ.editarEducacion(educac, id);
-    }
-    /* @PutMapping("/editar/{id}")
+    } 
+    @PutMapping("/editar/{id}")
     public Educacion editarEducacion(@PathVariable Long id,
                                 @RequestParam("nombre_titulo") String nuevoNombre_titulo,
                                 @RequestParam("descripcion") String nuevoDescripcion,
@@ -65,11 +65,17 @@ public class EducacionController {
         educacion.setLogo(nuevoLogo);
         educacion.setInstituto(nuevoInstituto);
         educacion.setCertificado(nuevoCertificado);
-        educacion.setInicio(Integer.SIZE);
-        educacion.setFin(Integer.SIZE);
+        educacion.setInicio(nuevoInicio);
+        educacion.setFin(nuevoFin);
         
         educacServ.crearEducacion(educacion);
         return educacion;
     }*/
+    
+    @PutMapping("/editar")
+    public ResponseEntity<Educacion> editarEducacion(@RequestBody Educacion educac){
+        Educacion updateEducacion=educacServ.editarEducacion(educac);
+        return new ResponseEntity<>(updateEducacion,HttpStatus.OK);
+    }
     
 }

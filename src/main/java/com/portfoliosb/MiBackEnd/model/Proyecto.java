@@ -16,7 +16,7 @@ public class Proyecto {
     private Long id;
     private String nombre;
     private String img;
-    private int año;
+    private int anio;
     private String descripcion;
     private String url;
 
@@ -25,11 +25,11 @@ public class Proyecto {
     public Proyecto() {
     }
 
-    public Proyecto(Long id, String nombre, String img, int año, String descripcion, String url) {
+    public Proyecto(Long id, String nombre, String img, int anio, String descripcion, String url) {
         this.id = id;
         this.nombre = nombre;
         this.img = img;
-        this.año = año;
+        this.anio = anio;
         this.descripcion = descripcion;
         this.url = url;
         

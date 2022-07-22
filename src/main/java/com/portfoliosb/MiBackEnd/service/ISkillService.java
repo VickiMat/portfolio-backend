@@ -10,5 +10,5 @@ public interface ISkillService {
     public void crearSkill(Skill ski);
     public void borrarSkill(Long id);
     public Skill buscarSkill(Long id);
-    public void editarSkill(Skill ski);
+    public Skill editarSkill(Skill ski);
 }

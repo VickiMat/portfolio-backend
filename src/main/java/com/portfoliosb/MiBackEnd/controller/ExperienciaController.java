@@ -5,6 +5,8 @@ import com.portfoliosb.MiBackEnd.model.Experiencia;
 import com.portfoliosb.MiBackEnd.service.IExperienciaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,8 +43,9 @@ public class ExperienciaController {
         experServ.borrarExperiencia(id);
     }
     
-    @PutMapping ("/editar/{id}")
-    public void editarExperiencia(@RequestBody Experiencia exper){
-        experServ.editarExperiencia(exper);
+    @PutMapping("/editar")
+    public ResponseEntity<Experiencia> editarExperiencia(@RequestBody Experiencia exper){
+        Experiencia updateExperiencia=experServ.editarExperiencia(exper);
+        return new ResponseEntity<>(updateExperiencia,HttpStatus.OK);
     }
 }

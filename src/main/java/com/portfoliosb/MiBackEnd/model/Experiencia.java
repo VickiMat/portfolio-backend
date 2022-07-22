@@ -18,7 +18,7 @@ public class Experiencia {
     private Long id;
     @Basic
     private String posicion;
-    private String compañia;
+    private String compania;
     private String url_img;
     private String modo;
     private String inicio;
@@ -31,10 +31,10 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia(Long id, String posicion, String compañia, String url_img, String modo, String inicio, String fin, String lugar, String descripcion) {
+    public Experiencia(Long id, String posicion, String compania, String url_img, String modo, String inicio, String fin, String lugar, String descripcion) {
         this.id = id;
         this.posicion = posicion;
-        this.compañia = compañia;
+        this.compania = compania;
         this.url_img = url_img;
         this.modo = modo;
         this.inicio = inicio;

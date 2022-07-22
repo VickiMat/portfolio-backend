@@ -33,8 +33,8 @@ public class SkillService implements ISkillService {
         return skiRepo.findById(id).orElse(null);    }
 
     @Override
-    public void editarSkill(Skill ski) {
-        skiRepo.save(ski);
+    public Skill editarSkill(Skill ski) {
+        return skiRepo.save(ski);
     }
     
 }

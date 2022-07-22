@@ -5,6 +5,8 @@ import com.portfoliosb.MiBackEnd.model.Persona;
 import com.portfoliosb.MiBackEnd.service.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,20 +27,26 @@ public class PersonaController {
         return persoServ.verPersonas();
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostAuthorize("hasRole('ADMIN')")
     @PostMapping("/personas/crear")
     public String crearPersona(@RequestBody Persona persona){
         persoServ.crearPersona(persona);
         return "La persona fue creada correctamente";
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/personas/borrar/{id}")
     public String borrarPersona(@PathVariable Long id){
         persoServ.borrarPersona(id);
         return "La persona fue eliminada correctamente";
     }
     
-    @PutMapping("/personas/editar/{id}")
-    public Persona editarpersona(@PathVariable Long id,
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostAuthorize("hasRole('ADMIN')")
+    @PutMapping("/personas/editarDatos")
+    public Persona editarpersona(@RequestParam("id") Long id,
                                 @RequestParam("nombre") String nuevoNombre,
                                 @RequestParam("apellido") String nuevoApellido,
                                 @RequestParam("titulo") String nuevoTitulo){
@@ -52,8 +60,10 @@ public class PersonaController {
         return persona;
     }
     
-    @PutMapping("/personas/editar/descripcion/{id}")
-    public Persona editarDescripcion(@PathVariable Long id,                                         
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostAuthorize("hasRole('ADMIN')")
+    @PutMapping("/personas/editarDescripcion")
+    public Persona editarDescripcion(@RequestParam("id") Long id,                                         
                                 @RequestParam("descripcion") String nuevoDescripcion){
         Persona persona = persoServ.buscarPersona(id);
         persona.setDescripcion(nuevoDescripcion);
@@ -62,8 +72,10 @@ public class PersonaController {
         return persona;
     }
     
-    @PutMapping("/personas/editar/imagen/{id}")
-    public Persona editarImagen(@PathVariable Long id,                                         
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostAuthorize("hasRole('ADMIN')")
+    @PutMapping("/personas/editarImagen")
+    public Persona editarImagen(@RequestParam("id") Long id,                                        
                                 @RequestParam("img") String nuevoImg){
         Persona persona = persoServ.buscarPersona(id);
         persona.setDescripcion(nuevoImg);

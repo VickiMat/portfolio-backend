@@ -5,6 +5,8 @@ import com.portfoliosb.MiBackEnd.model.Skill;
 import com.portfoliosb.MiBackEnd.service.ISkillService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +26,7 @@ public class SkillController {
     @Autowired
     private ISkillService skiServ;
     
-     @PostMapping ("/nuevo")
+     @PostMapping ("/crear")
     public void crearSkill(@RequestBody Skill ski){
         skiServ.crearSkill(ski);
     }
@@ -40,10 +42,12 @@ public class SkillController {
         skiServ.borrarSkill(id);
     }
     
-    @PutMapping ("/editar/{id}")
-    public void editarDescripcion(@RequestBody Skill ski){
-        skiServ.editarSkill(ski);
+     @PutMapping("/editar")
+    public ResponseEntity<Skill> editarSkill(@RequestBody Skill ski){
+        Skill updateSkill=skiServ.editarSkill(ski);
+        return new ResponseEntity<>(updateSkill,HttpStatus.OK);
     }
+    
     
     
     

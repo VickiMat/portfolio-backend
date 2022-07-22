@@ -4,10 +4,12 @@ package com.portfoliosb.MiBackEnd.service;
 import com.portfoliosb.MiBackEnd.model.Experiencia;
 import com.portfoliosb.MiBackEnd.repository.ExperienciaRepository;
 import java.util.List;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Transactional
 public class ExperienciaService implements IExperienciaService{
     
     @Autowired
@@ -34,8 +36,8 @@ public class ExperienciaService implements IExperienciaService{
     }
 
     @Override
-    public void editarExperiencia(Experiencia exper) {
-        experRepo.save(exper);
+    public Experiencia editarExperiencia(Experiencia exper) {
+        return experRepo.save(exper);
     }
     
 }

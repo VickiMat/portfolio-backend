@@ -35,8 +35,8 @@ public class ProyectoService implements IProyectoService{
     }
 
     @Override
-    public void editarProyecto(Proyecto proyec) {
-        proyecRepo.save(proyec);
+    public Proyecto editarProyecto(Proyecto proyec) {
+        return proyecRepo.save(proyec);
     }
     
 }

@@ -6,8 +6,10 @@ import com.portfoliosb.MiBackEnd.repository.EducacionRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class EducacionService implements IEducacionService {
 
     
@@ -34,9 +36,10 @@ public class EducacionService implements IEducacionService {
         return educacRepo.findById(id).orElse(null);
     }
 
+
     @Override
-    public void editarEducacion(Educacion educac, Long id) {
-        educacRepo.save(educac);
+    public Educacion editarEducacion(Educacion educac) {
+        return educacRepo.save(educac);
     }
 
 

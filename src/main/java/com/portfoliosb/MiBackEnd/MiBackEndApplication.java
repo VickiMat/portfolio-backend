@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class MiBackEndApplication {
@@ -14,6 +16,17 @@ public class MiBackEndApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MiBackEndApplication.class, args);
 	}
+        
+
+         @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/greeting-javaconfig").allowedOrigins("https://portfolio-ap-2bc24.web.app");
+            }
+        };
+    }
 
         @Bean
 	public CorsFilter corsFilter() {

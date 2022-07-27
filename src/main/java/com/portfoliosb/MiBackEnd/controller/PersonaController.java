@@ -78,7 +78,7 @@ public class PersonaController {
     public Persona editarImagen(@RequestParam("id") Long id,                                        
                                 @RequestParam("img") String nuevoImg){
         Persona persona = persoServ.buscarPersona(id);
-        persona.setDescripcion(nuevoImg);
+        persona.setImg(nuevoImg);
         
         persoServ.crearPersona(persona);
         return persona;

@@ -23,7 +23,7 @@ public class MiBackEndApplication {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/greeting-javaconfig").allowedOrigins("https://portfolio-ap-2bc24.web.app");
+                registry.addMapping("/greeting-javaconfig").allowedOrigins("https://portfolio-ap-2bc24.web.app/");
             }
         };
     }
@@ -32,7 +32,7 @@ public class MiBackEndApplication {
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
 		corsConfiguration.setAllowCredentials(true);
-		corsConfiguration.setAllowedOrigins(Arrays.asList("https://portfolio-ap-2bc24.web.app"));
+		corsConfiguration.setAllowedOrigins(Arrays.asList("https://portfolio-ap-2bc24.web.app/"));
 		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin", "Access-Control-Allow-Origin", "Content-Type",
 				"Accept", "Authorization", "Origin, Accept", "X-Requested-With",
 				"Access-Control-Request-Method", "Access-Control-Request-Headers"));
